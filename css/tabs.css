@@ -217,6 +217,7 @@ h2.resp-accordion .fc_icons {
 }
 
 .big-icon {
+  border: none;
 	width: 80px;
   text-decoration: none;
   color: #fff !important;
