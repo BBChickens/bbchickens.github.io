@@ -412,6 +412,8 @@ async function onConnect() {
   });
   const element = document.getElementById('connectwarning');
   element.remove();
+  const element = document.getElementById('connectwarning2');
+  element.remove();
 }
 
 // "disconnect button"
