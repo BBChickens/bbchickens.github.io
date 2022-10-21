@@ -714,7 +714,7 @@ async function mintBBC() {
   let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
   let number = $('#Nmint').val();
   let ftm = number * 45;
-  let value = await tokenContract.methods.Mint(ftm, number).send({ from: selectedAccount })
+  let value = await tokenContract.methods.mint(ftm, number).send({ from: selectedAccount })
 
 }
 // web3 send() of both mint functions based off time, yes time
