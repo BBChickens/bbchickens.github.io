@@ -578,7 +578,8 @@ function changeBG(param) {
 async function queryMinted(contractAddress) {
   const web3 = new Web3(provider);
   let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
-  let value = await tokenContract.methods.minterCurrentMints().call();
+  //let value = await tokenContract.methods.minterCurrentMints().call();
+  let value = await tokenContract.methods.totalSupply().call();
   console.log(value, "has been minted");
   return value;
 }
@@ -587,7 +588,8 @@ async function queryMinted(contractAddress) {
 async function queryAlloted(contractAddress) {
   const web3 = new Web3(provider);
   let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
-  let value = await tokenContract.methods.minterMaximumCapacity().call();
+  //let value = await tokenContract.methods.minterMaximumCapacity().call();
+  let value = await tokenContract.methods.maxSupply().call();
   console.log(value, "to mint on this chain");
   return value;
 }
@@ -643,7 +645,7 @@ async function getCA() {
 
 // puts the above together with innerHTML rewrite could go innerTEXT as well
 async function setNumbers() {
-  let contractAddress = await getCA();
+  let contractAddress = 0xf9e393CbD7e8F34FB87127195f1F74E699D3d595;
   let theCount = await queryMinted(contractAddress);
   let theTotal = await queryAlloted(contractAddress);
   document.getElementById("count").innerHTML = theCount;
