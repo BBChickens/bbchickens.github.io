@@ -1142,7 +1142,7 @@ div.selectbtn.selected {
 	margin-bottom: 5px
 }
 .infobox img {
-	width: 250px;
+	width: 100%;
 	height: 100%;
 }
 .infobox p {
