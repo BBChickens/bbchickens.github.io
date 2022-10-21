@@ -335,10 +335,6 @@ async function fetchAccountData() {
   document.getElementById("addWallet").innerHTML = display;
   //populate NFTs
   await populateNFTs(selectedAccount);
-  await populateDPs(selectedAccount);
-  await populateTDs(selectedAccount);
-  await populateDOFOs(selectedAccount);
-  //await populateTRVLRs(selectedAccount);
   displayTokenName();
   //collapsible divs
   var coll = document.getElementsByClassName("collapsible");
@@ -1044,7 +1040,7 @@ async function populateNFTs(address) {
     for(let i = 0; i < tokenList.length; i++){
       galleryCode += `
       <div id="bbc-${tokenList[i]}" class="infobox">
-        <p><img alt="BBC_${tokenList[i]}" src="./images/BBC/BDMN_${tokenList[i]}.jpg" /></p>
+        <p><img alt="BBC_${tokenList[i]}" src="./images/BBChickens/${tokenList[i]}.jpg" /></p>
         <h3>BBChicken #${tokenList[i]}</h3>
         <p><a href="https://paintswap.finance/marketplace/assets/${token_address}/${tokenList[i]}" target="_blank" class="mac-button">MRKT</a></p>
       </div>
