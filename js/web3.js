@@ -995,7 +995,7 @@ async function populateNFTs(address) {
   if (document.contains(document.getElementById("galleryBD"))) {
             document.getElementById("galleryBD").remove();}
 
-  const token_address = '0xBEa7c3F2D91a9c6fD7F5aA9c803d4C31C1dB8db9'
+  const token_address = '0xf9e393CbD7e8F34FB87127195f1F74E699D3d595'
   const FTMSCAN_API_KEY = 'J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE'
   // TODO: in the future, to see all NFTs, modify contractCreation and use 0
   let startBlock = 25639393 //just before minting
@@ -1027,7 +1027,7 @@ async function populateNFTs(address) {
 
   //const token_trx = Object.values(dictionary)
   console.log(tokenList)
-  console.log(`${address} owns ${tokenList.length} BitDaemons`)
+  console.log(`${address} owns ${tokenList.length} BBChickens`)
   if (tokenList.length > 0) {
     var bdgallery = document.createElement('div')
     bdgallery.classList.add("mac-window", "centered")
@@ -1035,16 +1035,15 @@ async function populateNFTs(address) {
     document.getElementById('content-wrapper').appendChild(bdgallery)
 
     var galleryCode = `<div class="mac-window-title"><span>BitDaemons</span></div>`;
-    galleryCode += `  <button class="collapsible">You own ${tokenList.length} BitDaemons</button>`;
+    var galleryCode = `  <p class="collapsible">You own ${tokenList.length} BBChickens</p>`;
     galleryCode += `<div class='content' id="bdboxes">`;
     //galleryCode += `<p class="example-left">👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹</p>`;
-    galleryCode +=  `<p>👹 The OG interstellar interlopers 👹</p>`
     //let i = 0;
     for(let i = 0; i < tokenList.length; i++){
       galleryCode += `
       <div id="bd-${tokenList[i]}" class="infobox">
         <p><img alt="BDMN_${tokenList[i]}" src="./images/BitDaemons/BDMN_${tokenList[i]}.jpg" /></p>
-        <h3>BitDaemon #${tokenList[i]}</h3>
+        <h3>BBChicken #${tokenList[i]}</h3>
         <p><a href="https://paintswap.finance/marketplace/assets/${token_address}/${tokenList[i]}" target="_blank" class="mac-button">MRKT</a></p>
       </div>
       `;
@@ -1053,253 +1052,6 @@ async function populateNFTs(address) {
      //console.log(galleryCode);
      bdgallery.innerHTML = galleryCode
   }
-}
-
-//DaemonPunks loader
-async function populateDPs(address) {
-  //if the div already exists, remove it (for wallet switching)
-  if (document.contains(document.getElementById("galleryDP"))) {
-            document.getElementById("galleryDP").remove();}
-  const token_address = '0x22dea64a0e9ecbb13d2b0dd2d95a91a06dacb23b'
-  const FTMSCAN_API_KEY = 'J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE'
-  // TODO: in the future, to see all NFTs, modify contractCreation and use 0
-  let startBlock = 25639393 //just before minting
-  //https://api.ftmscan.com/api?module=account&action=tokennfttx&contractaddress=0xBEa7c3F2D91a9c6fD7F5aA9c803d4C31C1dB8db9&address=0x27e9531d81E0D89CE04394E233d406256d66d36a&startblock=0&endblock=99999999&page=1&offset=100&sort=asc&apikey=J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE
-  const ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
-  + `&contractaddress=${token_address}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
-  // console.log(ftmscan_query)
-  const result = await axios.get(ftmscan_query)
-  .then(response => {
-    // console.log('Axios got a response...');console.log(response);
-    return response.data.result
-  })
-  .catch(error => {
-    console.log(error)
-  })
-
-  // console.log(result)
-  console.log(result) //need to check!
-  //let dictionary = {}
-  let tokenList = []
-  for (let t of result) {
-    // Only filter where t.to is this address (t.from sends it away)
-    if (t.to.toLowerCase() == address.toLowerCase()) {
-      tokenList.push(t.tokenID)} //add token ID if incoming
-    if (t.from.toLowerCase() == address.toLowerCase()) {
-      const index = tokenList.indexOf(t.tokenID);
-      if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
-
-
-  //const token_trx = Object.values(dictionary)
-  console.log(tokenList)
-  console.log(`${address} owns ${tokenList.length} DaemonPunks`)
-  if (tokenList.length > 0) {
-    var bdgallery = document.createElement('div')
-    bdgallery.classList.add("mac-window", "centered")
-    bdgallery.id = "galleryDP";
-    document.getElementById('content-wrapper').appendChild(bdgallery)
-
-    var galleryCode = `<div class="mac-window-title"><span>DaemonPunks</span></div>`;
-    galleryCode += `  <button class="collapsible">You own ${tokenList.length} DaemonPunks</button>`;
-    galleryCode += `<div class='content' id="dpboxes">`;
-    //galleryCode += `<p class="example-left">👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘 The first corrupted 👹🤘</p>`;
-    galleryCode += `<p>👹🤘 The first corrupted 👹🤘</p>`
-
-    for(let i = 0; i < tokenList.length; i++){
-      galleryCode += `
-      <div id="bd-${tokenList[i]}" class="infobox">
-        <p><img alt="DMNPUNK_${tokenList[i]}" src="./images/DaemonPunks/DMNPUNK_${tokenList[i]}.png" /></p>
-        <h3>DaemonPunk #${tokenList[i]}</h3>
-        <p><a href="https://paintswap.finance/marketplace/assets/${token_address}/${tokenList[i]}" target="_blank" class="mac-button">MRKT (PS)</a>
-        <a href="https://nftkey.app/collections/daemonpunks/token-details/?tokenId=${tokenList[i]}" target="_blank" class="mac-button">MRKT (NFTKey)</a></p>
-      </div>
-      `;
-     }
-     bdgallery.innerHTML = galleryCode
-  }
-}
-
-
-//TinyDaemons loader
-async function populateTDs(address) {
-  //if the div already exists, remove it (for wallet switching)
-  if (document.contains(document.getElementById("galleryTD"))) {
-            document.getElementById("galleryTD").remove();}
-  const token_address = '0x8bb765ae3e2320fd9447889d10b9dc7ce4970da5'
-  const FTMSCAN_API_KEY = 'J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE'
-  // TODO: in the future, to see all NFTs, modify contractCreation and use 0
-  let startBlock = 25639393 //just before minting
-  //https://api.ftmscan.com/api?module=account&action=tokennfttx&contractaddress=0xBEa7c3F2D91a9c6fD7F5aA9c803d4C31C1dB8db9&address=0x27e9531d81E0D89CE04394E233d406256d66d36a&startblock=0&endblock=99999999&page=1&offset=100&sort=asc&apikey=J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE
-  const ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
-  + `&contractaddress=${token_address}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
-  // console.log(ftmscan_query)
-  const result = await axios.get(ftmscan_query)
-  .then(response => {
-    // console.log('Axios got a response...');console.log(response);
-    return response.data.result
-  })
-  .catch(error => {
-    console.log(error)
-  })
-
-  // console.log(result)
-  console.log(result) //need to check!
-  //let dictionary = {}
-  let tokenList = []
-  for (let t of result) {
-    // Only filter where t.to is this address (t.from sends it away)
-    if (t.to.toLowerCase() == address.toLowerCase()) {
-      tokenList.push(t.tokenID)} //add token ID if incoming
-    if (t.from.toLowerCase() == address.toLowerCase()) {
-      const index = tokenList.indexOf(t.tokenID);
-      if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
-
-
-  //const token_trx = Object.values(dictionary)
-  console.log(tokenList)
-  console.log(`${address} owns ${tokenList.length} TinyDaemons`)
-  let boxNFT = 'infobox'
-  //trouble below
-  if (tokenList.length > 6){
-    boxNFT = 'infobox-small';
-    console.log('tinywhale')
-  }
-
-  if (tokenList.length > 0) {
-    var bdgallery = document.createElement('div')
-    bdgallery.classList.add("mac-window", "centered")
-    bdgallery.id = "galleryTD";
-    document.getElementById('content-wrapper').appendChild(bdgallery)
-
-    var galleryCode = `<div class="mac-window-title"><span>TinyDaemons</span></div>`;
-    galleryCode += `  <button class="collapsible">You own ${tokenList.length} TinyDaemons</button>`;
-    galleryCode += `<div class='content' id="tdboxes">`;
-    //galleryCode += `<p class="example-left">👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏 The omnichain sentinels 👹🤏</p>`;
-    galleryCode += `<p>👹🤏 The omnichain sentinels 👹🤏</p>`
-
-    //let i = 0;
-    for(let i = 0; i < tokenList.length; i++){
-      galleryCode += `
-      <div id="bd-${tokenList[i]}" class="${boxNFT}">
-        <p><img alt="TINYDMN_${tokenList[i]}" src="./images/TinyDaemons/TDMN_${tokenList[i]}.jpg" /></p>
-        <h3>TinyDaemon #${tokenList[i]}</h3>
-        <p><a href="https://paintswap.finance/marketplace/assets/${token_address}/${tokenList[i]}" target="_blank" class="mac-button">MRKT</a></p>
-      </div>
-      `;
-     }
-     bdgallery.innerHTML = galleryCode
-  }
-}
-
-//DOFO loader
-async function populateDOFOs(address) {
-  //if the div already exists, remove it (for wallet switching)
-  if (document.contains(document.getElementById("galleryDOFO"))) {
-            document.getElementById("galleryDOFO").remove();}
-  //address = '0x3e522051a9b1958aa1e828ac24afba4a551df37d';
-  const token_address = '0xa5da68f1bc0c8eb048862b07c6b1e740e8401a20'
-  const FTMSCAN_API_KEY = 'J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE'
-  // TODO: in the future, to see all NFTs, modify contractCreation and use 0
-  let startBlock = 18530962 //just before minting
-  //https://api.ftmscan.com/api?module=account&action=tokennfttx&contractaddress=0xBEa7c3F2D91a9c6fD7F5aA9c803d4C31C1dB8db9&address=0x27e9531d81E0D89CE04394E233d406256d66d36a&startblock=0&endblock=99999999&page=1&offset=100&sort=asc&apikey=J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE
-  const ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
-  + `&contractaddress=${token_address}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
-  // console.log(ftmscan_query)
-  const result = await axios.get(ftmscan_query)
-  .then(response => {
-    // console.log('Axios got a response...');console.log(response);
-    return response.data.result
-  })
-  .catch(error => {
-    console.log(error)
-  })
-
-  // console.log(result)
-  console.log(result) //need to check!
-  //let dictionary = {}
-  let tokenList = []
-  for (let t of result) {
-    // Only filter where t.to is this address (t.from sends it away)
-    if (t.to.toLowerCase() == address.toLowerCase()) {
-      tokenList.push(t.tokenID)} //add token ID if incoming
-    if (t.from.toLowerCase() == address.toLowerCase()) {
-      const index = tokenList.indexOf(t.tokenID);
-      if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
-
-
-  //const token_trx = Object.values(dictionary)
-  console.log(tokenList)
-  console.log(`${address} owns ${tokenList.length} Daemons of Fantom Opera`)
-  if (tokenList.length > 0) {
-    var bdgallery = document.createElement('div')
-    bdgallery.classList.add("mac-window", "centered")
-    bdgallery.id = "galleryDOFO";
-    document.getElementById('content-wrapper').appendChild(bdgallery)
-
-    var galleryCode = `<div class="mac-window-title"><span>Daemons of Fantom Opera</span></div>`;
-    galleryCode += `  <button class="collapsible">You own ${tokenList.length} Daemons of Fantom Opera</button>`;
-    galleryCode += `<div class='content' id="dofoboxes">`;
-    //galleryCode += `<p class="example-left">👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖</p>`;
-    galleryCode += `<p>👹📖 The lore archive 👹📖</p>`
-
-    //let i = 0;
-    for(let i = 0; i < tokenList.length; i++){
-
-      galleryCode += `
-      <div id="bd-${tokenList[i]}" class="infobox">
-        <p><img alt="DMN_${tokenList[i]}" src="./images/dofo/DOFO_${tokenList[i]}.png" /></p>
-        <h3>DoFO #${tokenList[i]}</h3>
-        <p><a href="https://paintswap.finance/marketplace/assets/${token_address}/${tokenList[i]}" target="_blank" class="mac-button">MRKT</a></p>
-      </div>
-      `;
-     }
-     bdgallery.innerHTML = galleryCode
-  }
-}
-
-async function populateTRVLRs(address) {
-  //if the div already exists, remove it (for wallet switching)
-  if (document.contains(document.getElementById("galleryTRVLR"))) {
-            document.getElementById("galleryTRVLR").remove();}
-  let web3 = new Web3(window.ethereum)
-  address = 0xb495023d8eb9526d8ec346703f2cff12f2a6963d; //address holding 2
-  const contract = new web3.eth.Contract(TravellerTokenABI, "0x82672f07F4A93cA4B4511994155129F5697d2154")
-  contract.defaultAccount = address
-
-  const DaemonBalance = await contract.methods.balanceOf(walletAddress).call()
-
-  if (DaemonBalance > 0){
-    var bdgallery = document.createElement('div')
-    bdgallery.classList.add("mac-window", "centered")
-    bdgallery.id = "galleryTRVLR";
-    document.getElementById('content-wrapper').appendChild(bdgallery)
-
-    var galleryCode = `<div class="mac-window-title"><span>TinyDaemonTravellers</span></div>`;
-    galleryCode += `  <button class="collapsible">You own ${DaemonBalance} TinyDaemonTravellers</button>`;
-    galleryCode += `<div class='content' id="trvlrboxes">`;
-    //galleryCode += `<p class="example-left">👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖 The lore archive 👹📖</p>`;
-    galleryCode += `<p>👹🧭 The unshackled 👹🧭</p>`
-
-    for(let i = 0; i < DaemonBalance; i++) {
-      const tokenId = await contract.methods.tokenOfOwnerByIndex(address, i).call()
-      let tokenMetadataURI = await contract.methods.tokenURI(tokenId).call()
-
-      if (tokenMetadataURI.startsWith("ipfs://")) {
-        tokenMetadataURI = `https://daemon.mypinata.cloud/ipfs/${tokenMetadataURI.split("ipfs://")[1]}`
-      }
-      const tokenMetadata = await fetch(tokenMetadataURI).then((response) => response.json())
-
-      galleryCode += `
-      <div id="tdmntrvlr-${tokenId}" class="infobox">
-        <p><img alt="TDMNTRVLR_${tokenId}" src=tokenMetadata["image"] /></p>
-        <h3>DoFO #${tokenList[i]}</h3>
-        <p><a href="https://paintswap.finance/marketplace/assets/0x82672f07F4A93cA4B4511994155129F5697d2154/${tokenId}" target="_blank" class="mac-button">MRKT</a>
-        <a href="" class="mac-button">ALT</a></p>
-      </div>
-      `;
-      }
-      bdgallery.innerHTML = galleryCode
-    }
 }
 
 
