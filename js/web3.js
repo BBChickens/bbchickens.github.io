@@ -410,7 +410,7 @@ async function onConnect() {
   provider.on("networkChanged", (networkId) => {
     fetchAccountData();
   });
-  const element = document.getElementById('helloplsconnect');
+  const element = document.getElementById('connectwarning');
   element.remove();
 }
 
