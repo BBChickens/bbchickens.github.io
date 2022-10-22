@@ -644,7 +644,7 @@ async function getCA() {
 
 // puts the above together with innerHTML rewrite could go innerTEXT as well
 async function setNumbers() {
-  let contractAddress = 0xf9e393CbD7e8F34FB87127195f1F74E699D3d595;
+  let contractAddress = "0xf9e393CbD7e8F34FB87127195f1F74E699D3d595";
   let theCount = await queryMinted(contractAddress);
   let theTotal = await queryAlloted(contractAddress);
   theString = `${queryMinted}/${queryAlloted}`;
