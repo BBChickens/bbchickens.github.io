@@ -712,8 +712,8 @@ async function mintBBC() {
   let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
   let number = $('#Nmint').val();
   let ftm = number * 45000000000000000000;
-  let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount })
-
+  let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
+  //let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount })
 }
 // web3 send() of both mint functions based off time, yes time
 async function spawnTinyDaemon() {
