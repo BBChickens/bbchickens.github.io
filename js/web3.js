@@ -368,11 +368,11 @@ async function fetchAccountData() {
  */
 async function getTreasury() {
 
-  const contractBalance = await provider.getBalance("0xf9e393CbD7e8F34FB87127195f1F74E699D3d595");
+  const contractBalance = await web3.eth.getBalance("0xf9e393CbD7e8F34FB87127195f1F74E699D3d595");
   console.log('BBC contract balance: ' + contractBalance.toString());
-  const multisigBalance = await provider.getBalance("0x5FC85515d6613164457724035413c5f8b2d899E5");
+  const multisigBalance = await web3.eth.getBalance("0x5FC85515d6613164457724035413c5f8b2d899E5");
   console.log('MultiSig balance: ' + multisigBalance.toString());
-  const flipBalance = await provider.getBalance("0x948E422Da3Bd457289C526C8bE6319949411BD5A");
+  const flipBalance = await web3.eth.getBalance("0x948E422Da3Bd457289C526C8bE6319949411BD5A");
   console.log('Flipporrr balance: ' + flipBalance.toString());
 
 
