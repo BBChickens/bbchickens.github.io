@@ -337,12 +337,15 @@ async function fetchAccountData() {
   await populateNFTs(selectedAccount);
   await setNumbers() //set minted/supply
 
-  const contractBalance = await web3.eth.getBalance("0xf9e393CbD7e8F34FB87127195f1F74E699D3d595");
-  console.log('BBC contract balance: ' + contractBalance.toString());
-  const multisigBalance = await web3.eth.getBalance("0x5FC85515d6613164457724035413c5f8b2d899E5");
-  console.log('MultiSig balance: ' + multisigBalance.toString());
-  const flipBalance = await web3.eth.getBalance("0x948E422Da3Bd457289C526C8bE6319949411BD5A");
-  console.log('Flipporrr balance: ' + flipBalance.toString()); //get treasury balances
+  let contractBalance = await web3.eth.getBalance("0xf9e393CbD7e8F34FB87127195f1F74E699D3d595");
+  contractBalance = contractBalance / 1e18;
+  console.log('BBC contract balance: ' + contractBalance.toString() + '$FTM');
+  let multisigBalance = await web3.eth.getBalance("0x5FC85515d6613164457724035413c5f8b2d899E5");
+  multisigBalance = multisigBalance / 1e18;
+  console.log('MultiSig balance: ' + multisigBalance.toString() + '$FTM');
+  let flipBalance = await web3.eth.getBalance("0x948E422Da3Bd457289C526C8bE6319949411BD5A");
+  flipBalance = flipBalance / 1e18;
+  console.log('Flipporrr balance: ' + flipBalance.toString() + '$FTM'); //get treasury balances
 
 
   //displayTokenName();
