@@ -348,8 +348,8 @@ async function fetchAccountData() {
   flipBalance = flipBalance / 1e18;
   console.log('Flipporrr balance: ' + flipBalance.toString() + '$FTM'); //get treasury balances
 
-  xBooContract = await new web3.eth.Contract(XBOOABI, "0x399D73bB7c83a011cD85DF2a3CdF997ED3B3439f");
-  let xBooBalance = await tokenContract.methods.balanceOf("0x5FC85515d6613164457724035413c5f8b2d899E5").call();
+  let xBooContract = await new web3.eth.Contract(XBOOABI, "0x399D73bB7c83a011cD85DF2a3CdF997ED3B3439f");
+  let xBooBalance = await xBooContract.methods.balanceOf("0x5FC85515d6613164457724035413c5f8b2d899E5").call();
   xBooBalance = xBooBalance / 1e18;
   console.log('xBOO balance: ' + xBooBalance.toString() + '$xBOO'); //get treasury balances
 
