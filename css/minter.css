@@ -1148,3 +1148,7 @@ div.selectbtn.selected {
 .infobox p {
 	margin: 0;
 }
+
+.container {
+  padding: 10px 10px 10px 10px;
+}
