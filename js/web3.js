@@ -711,7 +711,7 @@ async function mintBBC() {
   // define tokenContract because why twice?
   let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
   let number = $('#Nmint').val();
-  let ftm = number.toInt() * 45000000000000000000;
+  let ftm = number * 45000000000000000000;
   let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount })
 
 }
