@@ -644,7 +644,7 @@ async function getCA() {
 
 // puts the above together with innerHTML rewrite could go innerTEXT as well
 async function setNumbers() {
-  let contractAddress = "0xf9e393CbD7e8F34FB87127195f1F74E699D3d595";
+  let contractAddress = '0xf9e393CbD7e8F34FB87127195f1F74E699D3d595';
   let theCount = await queryMinted(contractAddress);
   let theTotal = await queryAlloted(contractAddress);
   theString = `${queryMinted}/${queryAlloted}`;
@@ -714,7 +714,7 @@ async function mintBBC() {
   let ftm = number * 45000000000000000000;
   let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
   // let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount })
-xbndfsz`````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````                              }
+}
 // web3 send() of both mint functions based off time, yes time
 async function spawnTinyDaemon() {
 
