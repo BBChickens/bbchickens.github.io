@@ -335,7 +335,8 @@ async function fetchAccountData() {
   document.getElementById("addWallet").innerHTML = display;
   //populate NFTs
   await populateNFTs(selectedAccount);
-  displayTokenName();
+  await setNumbers() //set minted/supply
+  //displayTokenName();
   //collapsible divs
   var coll = document.getElementsByClassName("collapsible");
   console.log(coll);
@@ -709,7 +710,7 @@ async function mintBBC() {
   // define tokenContract because why twice?
   let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
   let number = $('#Nmint').val();
-  let ftm = number * 45;
+  let ftm = number.toInt() * 45000000000000000000;
   let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount })
 
 }
