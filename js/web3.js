@@ -337,7 +337,7 @@ async function fetchAccountData() {
   await populateNFTs(selectedAccount);
   await setNumbers() //set minted/supply
 
-  placeholder
+  await getTreasury(); //get treasury balances
 
 
   //displayTokenName();
@@ -373,8 +373,12 @@ async function getTreasury() {
   const multisigBalance = await provider.getBalance("0x5FC85515d6613164457724035413c5f8b2d899E5");
   console.log('MultiSig balance: ' + multisigBalance.toString();
   const flipBalance = await provider.getBalance("0x948E422Da3Bd457289C526C8bE6319949411BD5A");
-}console.log('Flipporrr balance: ' + flipBalance.toString();
+  console.log('Flipporrr balance: ' + flipBalance.toString();
 
+
+
+
+  }
 
 async function refreshAccountData() {
 
