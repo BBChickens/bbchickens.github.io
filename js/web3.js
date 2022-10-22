@@ -718,7 +718,7 @@ async function mintBBC() {
   // let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
   //try AMGOTH way
   let cost = 45000000000000000000;
-  let gasLimit = 115000;
+  let gasLimit = 285000;
   let totalCostWei = String(cost * mintAmount);
   let totalGasLimit = String(gasLimit * mintAmount);
   console.log("Cost: ", totalCostWei);
