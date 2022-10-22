@@ -710,7 +710,7 @@ async function mintBBC() {
   let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
   let number = $('#Nmint').val();
   let ftm = number * 45;
-  let value = await tokenContract.methods.mint([ftm, number]).send({ from: selectedAccount })
+  let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount })
 
 }
 // web3 send() of both mint functions based off time, yes time
@@ -1033,7 +1033,7 @@ async function populateNFTs(address) {
     document.getElementById('content-wrapper').appendChild(bdgallery)
 
     var galleryCode = `<div class="mac-window-title"><span>BitDaemons</span></div>`;
-    var galleryCode = `  <p class="collapsible">You own ${tokenList.length} BBChickens</p>`;
+    var galleryCode = `  <h3 class="collapsible">You own ${tokenList.length} BBChickens</h3>`;
     galleryCode += `<div class='content' id="bdboxes">`;
     //galleryCode += `<p class="example-left">👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹</p>`;
     //let i = 0;
@@ -1041,7 +1041,7 @@ async function populateNFTs(address) {
       galleryCode += `
       <div id="bbc-${tokenList[i]}" class="infobox">
         <p><img alt="BBC_${tokenList[i]}" src="./images/BBChickens/${tokenList[i]}.jpg" /></p>
-        <h3>BBChicken #${tokenList[i]}</h3>
+        <p>BBChicken #${tokenList[i]}</p>
         <p><a href="https://paintswap.finance/marketplace/assets/${token_address}/${tokenList[i]}" target="_blank" class="mac-button">MRKT</a></p>
       </div>
       `;
