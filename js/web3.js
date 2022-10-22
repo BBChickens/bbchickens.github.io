@@ -647,7 +647,7 @@ async function setNumbers() {
   let contractAddress = '0xf9e393CbD7e8F34FB87127195f1F74E699D3d595';
   let theCount = await queryMinted(contractAddress);
   let theTotal = await queryAlloted(contractAddress);
-  theString = `${queryMinted}/${queryAlloted}`;
+  let theString = `${queryMinted}/${queryAlloted}`;
   console.log(theString);
   document.getElementById("count").innerHTML = theString;
 }
