@@ -710,10 +710,25 @@ async function mintBBC() {
 
   // define tokenContract because why twice?
   let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
-  let number = $('#Nmint').val();
+  let mintAmount = $('#Nmint').val();
   let ftm = number * 45000000000000000000;
-  let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
-  // let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount })
+  //let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
+  // let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
+  //try AMGOTH way
+  let cost = 45000000000000000000;
+  let gasLimit = 115000;
+  let totalCostWei = String(cost * mintAmount);
+  let totalGasLimit = String(gasLimit * mintAmount);
+  console.log("Cost: ", totalCostWei);
+  console.log("Gas limit: ", totalGasLimit);
+  let value= await tokenContract.methods
+    .mint(mintAmount)
+    .send({
+      gasLimit: String(totalGasLimit),
+      to: contractAddress,
+      from: selectedAccount,
+      value: totalCostWei,
+    })
 }
 // web3 send() of both mint functions based off time, yes time
 async function spawnTinyDaemon() {
