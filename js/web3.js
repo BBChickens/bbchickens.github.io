@@ -353,6 +353,8 @@ async function fetchAccountData() {
   xBooBalance = xBooBalance / 1e18;
   console.log('xBOO balance: ' + xBooBalance.toString() + '$xBOO'); //get treasury balances
 
+  let totalFTM = contractBalance + multisigBalance + flipBalance;
+  document.getElementById("ftmtreasurybalance").innerHTML = totalFTM; //populate FTM treasury balance
   //displayTokenName();
   //collapsible divs
   var coll = document.getElementsByClassName("collapsible");
