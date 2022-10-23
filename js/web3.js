@@ -356,7 +356,7 @@ async function fetchAccountData() {
   let totalFTM = contractBalance + multisigBalance + flipBalance;
   document.getElementById("ftmTB").innerHTML = totalFTM.toString(); //populate FTM treasury balance
   document.getElementById("xbooTB").innerHTML = xBooBalance.toString(); //populate FTM treasury balance
-
+  console.log('populated treasury balances');
   //displayTokenName();
   //collapsible divs
   var coll = document.getElementsByClassName("collapsible");
