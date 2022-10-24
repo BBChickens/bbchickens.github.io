@@ -269,3 +269,20 @@ h2.resp-accordion .fc_icons {
   color: #000;
   text-shadow: 0 1px 6px #000;
 }
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+  .content-row {
+    position: flex;
+    left: 0;
+    bottom: 10%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-align: center;
+}

@@ -1083,7 +1083,14 @@ async function populateNFTs(address) {
       <div id="bbc-${tokenList[i]}" class="infobox">
         <p><img alt="BBC_${tokenList[i]}" src="./images/BBChickens/${tokenList[i]}.jpg" /></p>
         <p>BBChicken #${tokenList[i]}</p>
-        <p><a href="https://paintswap.finance/marketplace/assets/${token_address}/${tokenList[i]}" target="_blank" class="mac-button">MRKT</a></p>
+        <div class="content-row">
+        <div class="button-row">
+        <a class="big-icon" href="https://paintswap.finance/marketplace/assets/${token_address}/${tokenList[i]}" target="_blank" rel="noreferrer noopener">
+        <img src="./images/PSlogo.png" alt="paintswap" /></a>
+        <a class="big-icon" href="https://nftkey.app/collections/bbchickens/token-details/?tokenId=/${tokenList[i]}" target="_blank" rel="noreferrer noopener">
+        <img src="./images/nftkey_logo.png" alt="nftkey" /></a>
+        </div>
+        </div>
       </div>
       `;
      }
