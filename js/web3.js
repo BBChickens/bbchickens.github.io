@@ -353,8 +353,8 @@ async function fetchAccountData() {
   let xBooContract = await new web3.eth.Contract(XBOOABI, "0x399D73bB7c83a011cD85DF2a3CdF997ED3B3439f");
   let xBooBalance = await xBooContract.methods.balanceOf("0x5FC85515d6613164457724035413c5f8b2d899E5").call();
   let mirrorworldContract = await new web3.eth.Contract(MIRRORWORLDABI, "0xa48d959AE2E88f1dAA7D5F611E01908106dE7598");
-  let xBooToBoo = await mirrorworldContract.methods.xBOOForBOO(1e18).call();
-  xBooToBoo = xBooToBoo / 1e18
+  let xBooToBoo = await mirrorworldContract.methods.xBOOForBOO("100000000").call();
+  xBooToBoo = xBooToBoo / 1e8
   xBooBalance = xBooBalance / 1e18;
   console.log('xBOO balance: ' + xBooBalance.toString() + '$xBOO'); //get treasury balances
   console.log('BOO balance: ' + xBooBalance*xBooToBoo.toString() + '$xBOO');
