@@ -17,13 +17,33 @@
 
 	<link rel="icon" type="image/png" href="./images/daemon_favicon.png" />
 	<link rel="canonical" href="index.html" />
-  
+
   </head>
-  
+
   <body>
-    
+
+
+
+
     <h1>Hello world</h1>
     <h3>Here be BBCs (pls work)</h3>
-    
+
+
+<div id="tin-widget"></div>
+<script>
+(function (w, d, s, o, f, js, fjs) {
+  w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+  js = d.createElement(s), fjs = d.getElementById(o + '-widget');
+  js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+}(window, document, 'script', 'tin', 'https://api.tin.network/widget/widget.js'));
+
+tin('init', {
+  address: "0x27e9531d81E0D89CE04394E233d406256d66d36a",
+  expand: false,
+  darkTheme: false
+});
+</script>
+
+
   </body>
   </html>
