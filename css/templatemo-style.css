@@ -14,7 +14,12 @@ http://www.templatemo.com/tm-502-short
 */
 
 body {
-	font-family: "Open Sans", sans-serif;
+	font-family: "bangers", sans-serif;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center center;
+		background-image: url("../images/newbg.png");
+
 }
 
 .page_wrapper {
@@ -104,7 +109,7 @@ body {
 ===============================================
 */
 .image-bg {
-	background-image: url(../img/background-image.png);
+	background-image: url(../img/newbg.png);
     background-repeat: no-repeat;
     background-size: cover;
     max-width: 100%;
@@ -125,7 +130,7 @@ body {
  }
  .home-container {
   margin-top: 28.5%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
  }
 
  .home-container .left-content {
@@ -209,7 +214,7 @@ body {
 
 .about-container {
   text-align: center;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   margin-top: 24%;
 }
 
@@ -257,7 +262,7 @@ body {
 */
 
 .projects-container {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   margin-top: 30%;
   padding: 40px 30px 0px  40px;
 }
@@ -415,13 +420,13 @@ body {
 */
 
 footer {
-  background-color: #f4f4f4;
+  background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
 footer p {
   font-size: 13px;
-  color: #7a7a7a;
+  color: #ffffff;
   padding: 20px 0px 15px 0px;
   margin: 0px;
 }
@@ -973,4 +978,12 @@ body.lb-disable-scrolling {
 
 .owl-carousel .owl-nav {
   display: none;
+}
+
+@font-face {
+  font-family: 'bangers';
+  src: url('../fonts/bangers.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }

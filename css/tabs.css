@@ -218,7 +218,7 @@ h2.resp-accordion .fc_icons {
 
 .big-icon {
   border: none;
-	width: 80px;
+	width: 90px;
   text-decoration: none;
   color: #fff !important;
 	display: block;
@@ -238,7 +238,7 @@ h2.resp-accordion .fc_icons {
   background: #000;
 	padding: 2px;
   display: inline-block;
-	font-size: 8px;
+	font-size: 12px;
 }
 
 .mac-icons {
@@ -250,6 +250,7 @@ h2.resp-accordion .fc_icons {
   overflow-y: auto;
   height: 20%;
 	background-color: rgba(0,0,0,0);
+  z-index: 1000;
 }
 
 .button {

@@ -272,18 +272,28 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .button-2 {
   padding-right: 20px;
   padding-left: 20px;
-  background-color: transparent;
+  background: url("../images/mintyone.png");
+  background-size: cover;
   -webkit-transition: all 350ms ease;
   transition: all 350ms ease;
-  font-family: 'Ocr a extended', sans-serif;
-  font-size: 14px;
-  text-shadow: 0 1px 6px #fff;
+  font-size: 30px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #fff;
+  border-radius: 3px;
+  color: #000;
+  text-shadow: 0 2px 2px #fff;
 }
 
 .button-2:hover {
-  background-color: hsla(0, 0%, 99.3%, 0.5);
-  color: #000;
-  text-shadow: 0 1px 6px #000;
+  background-image: url("../images/mintytwo.png");
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+  border-color: #000;
+}
+
+.button-2 h2 {
+  color: #fff;
 }
 
 .button-2.mint-utton {
@@ -306,7 +316,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   padding-bottom: 8px;
   border-style: solid solid solid solid;
   border-width: 3px;
-  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
   border-top-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
