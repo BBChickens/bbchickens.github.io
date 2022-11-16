@@ -1033,6 +1033,7 @@ async function refreshNFTs() {
   const accounts = await web3.eth.getAccounts();
   selectedAccount = accounts[0];
   await populateNFTs(selectedAccount);
+  await populateMICROs(selectedAccount);
 }
 
 //BitDaemons loader
