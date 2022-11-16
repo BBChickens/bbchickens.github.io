@@ -830,6 +830,35 @@ async function mintBBC() {
       value: totalCostWei,
     })
 }
+
+async function burnBBC() {
+  let contractAddress = '0xf9e393CbD7e8F34FB87127195f1F74E699D3d595'; //bbc_contract addy
+
+  const web3 = new Web3(provider);
+
+  // Get account of the connected wallet (refresh)
+  let accounts = await web3.eth.getAccounts();
+  selectedAccount = accounts[0]
+
+  let dead = '0x000000000000000000000000000000000000dead';
+
+  // define tokenContract because why twice?
+  let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
+  let ID = $('#BBC-burn-id').val();
+  //let ftm = number * 45000000000000000000;
+  //let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
+  // let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
+  //try AMGOTH way
+
+  let transferFrom = await tokenContract.methods.transferFrom(selectedAccount, dead, ID)
+  let gas = transferFrom.estimateGas({from: selectedAccount})
+
+
+  const result = await transferFrom.send({
+    from: selectedAccount,
+    gas: Math.round(gasEstimate * 1.1)
+});
+}
 // web3 send() of both mint functions based off time, yes time
 async function spawnTinyDaemon() {
 
@@ -1152,6 +1181,16 @@ async function populateNFTs(address) {
 
     //var galleryCode = `<div class="mac-window-title"><span>BitDaemons</span></div>`;
     var galleryCode = `  <h3 class="collapsible">You own ${tokenList.length} BBChickens</h3>`;
+    gallerycode += `    <div class="form-block w-form">
+            <h2> <button id="btn-burn-bbc" class="button-2">
+              BURN
+            </button> BBC ID:
+              <input type="number"
+                     id="Nmint"
+                     name="Nmint"
+                     list = ${tokenList}
+                     value="${tokenList[0]}">
+            </h2>`
     galleryCode += `<div class='content' id="bdboxes">`;
     //galleryCode += `<p class="example-left">👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹</p>`;
     //let i = 0;
@@ -1279,6 +1318,8 @@ window.addEventListener('load', async () => {
   //document.querySelector("#BSC").addEventListener("click", hitBNB);
   //document.querySelector("#OP").addEventListener("click", hitOP);
   document.querySelector("#btn-mint").addEventListener("click", mintBBC);
+  document.querySelector("#btn-burn-bbc").addEventListener("click", burnBBC);
+  document.querySelector("#btn-burn-mr").addEventListener("click", burnMR);
   //document.querySelector("#btn-buyNFT").addEventListener("click", spawnTinyDaemon);
   //document.querySelector("#btn-traverseNFT").addEventListener("click", traverseTinyDaemon);
   //document.querySelector("#btn-Donate").addEventListener("click", ramenIsOnTheMenu);
