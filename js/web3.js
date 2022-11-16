@@ -1159,6 +1159,10 @@ async function populateMICROs(address) {
     var galleryCode = `  <h3 class="collapsible">You own ${tokenList.length} MicroRoosters</h3>`;
     galleryCode += `<div class='content' id="bdboxes">`;
     //create contract instance
+    const Web3 = require('web3');
+// web3 lib instance
+    const web3 = new Web3(window.ethereum);
+// get all accounts
     const microcontract = new web3.eth.Contract(MICROABI, token_address);
     //galleryCode += `<p class="example-left">👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹</p>`;
     //let i = 0;
