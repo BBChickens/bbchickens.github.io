@@ -688,7 +688,7 @@ async function setNumbers(address) {
 
   let ca_micro = '0x90B93c7A6DbAeb685878f6fe712Fb0E1cF2babe4';
   let theMicroCount = await queryMinted(ca_micro);
-  let totalShares = theCount + 2*(theMicroCount); //total shares
+  let totalShares = parseInt(theCount) + 2*(parseInt(theMicroCount)); //total shares
   console.log(totalShares);
 
 
@@ -740,7 +740,7 @@ async function setNumbers(address) {
   let Nm = tokenList.length;
   console.log(Nm);
 
-  let userShares = Nb + 2*Nm
+  let userShares = Nb + 2*Nm;
   let sharePercent = 100*userShares/totalShares;
   console.log(sharePercent);
 
