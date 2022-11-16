@@ -1186,11 +1186,14 @@ async function populateNFTs(address) {
               BURN
             </button> BBC ID:
               <input type="number"
-                     id="Nmint"
+                     id="BBC-burn-id"
                      name="Nmint"
                      list = ${tokenList}
                      value="${tokenList[0]}">
             </h2>`
+
+    document.querySelector("#btn-burn-bbc").addEventListener("click", burnBBC);
+
     galleryCode += `<div class='content' id="bdboxes">`;
     //galleryCode += `<p class="example-left">👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹</p>`;
     //let i = 0;
@@ -1318,7 +1321,6 @@ window.addEventListener('load', async () => {
   //document.querySelector("#BSC").addEventListener("click", hitBNB);
   //document.querySelector("#OP").addEventListener("click", hitOP);
   document.querySelector("#btn-mint").addEventListener("click", mintBBC);
-  document.querySelector("#btn-burn-bbc").addEventListener("click", burnBBC);
   //document.querySelector("#btn-burn-mr").addEventListener("click", burnMR);
   //document.querySelector("#btn-buyNFT").addEventListener("click", spawnTinyDaemon);
   //document.querySelector("#btn-traverseNFT").addEventListener("click", traverseTinyDaemon);
