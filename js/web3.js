@@ -1319,7 +1319,7 @@ window.addEventListener('load', async () => {
   //document.querySelector("#OP").addEventListener("click", hitOP);
   document.querySelector("#btn-mint").addEventListener("click", mintBBC);
   document.querySelector("#btn-burn-bbc").addEventListener("click", burnBBC);
-  document.querySelector("#btn-burn-mr").addEventListener("click", burnMR);
+  //document.querySelector("#btn-burn-mr").addEventListener("click", burnMR);
   //document.querySelector("#btn-buyNFT").addEventListener("click", spawnTinyDaemon);
   //document.querySelector("#btn-traverseNFT").addEventListener("click", traverseTinyDaemon);
   //document.querySelector("#btn-Donate").addEventListener("click", ramenIsOnTheMenu);
