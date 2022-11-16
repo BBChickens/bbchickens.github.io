@@ -1216,7 +1216,7 @@ async function populateNFTs(address) {
 
     galleryCode += `<div class='content' id="bdboxes">`;
     galleryCode += `    <div class="form-block w-form">
-            <h2> <button id="btn-burn-bbc" class="button-3" onclick="return confirm('You sure? No backsies 🐔🔥🍗')">
+            <h2> <button id="btn-burn-bbc" class="button-3" onclick="return confirm('You sure?! No backsies 🐔🔥🍗')">
               BURN
             </button> BBC ID:
               <input type="number"
@@ -1224,7 +1224,7 @@ async function populateNFTs(address) {
                      name="BBC-burn-id"
                      list = ${tokenList}
                      value="${tokenList[0]}"
-                     size="5">
+                     width=50>
             </h2>`;
     //galleryCode += `<p class="example-left">👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹</p>`;
     //let i = 0;
@@ -1309,7 +1309,7 @@ async function populateMICROs(address) {
                      name="BBC-burn-mr"
                      list = ${tokenList}
                      value="${tokenList[0]}"
-                     size="5">
+                     width="50">
             </h2>`;
     //create contract instance
     //const Web3 = require('web3');
