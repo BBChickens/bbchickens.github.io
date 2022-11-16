@@ -712,7 +712,7 @@ async function setNumbers(address) {
       var index = tokenList.indexOf(t.tokenID);
       if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
 
-  Nb = tokenList.length;
+  let Nb = tokenList.length;
   console.log(Nb);
 
   var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
@@ -736,11 +736,11 @@ async function setNumbers(address) {
       var index = tokenList.indexOf(t.tokenID);
       if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
 
-  Nm = tokenList.length;
+  let Nm = tokenList.length;
   console.log(Nm);
 
 
-  sharePercent = 100*(Nb + 2*(Nm))/totalShares;
+  let sharePercent = 100*(Nb + 2*(Nm))/totalShares;
 
   document.getElementById("yourshare").innerHTML = `<h1>Your holdings represent a ${sharePercent}% share of the BBC treasury</h1>`;
 
