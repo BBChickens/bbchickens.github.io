@@ -689,6 +689,7 @@ async function setNumbers(address) {
   let ca_micro = '0x90B93c7A6DbAeb685878f6fe712Fb0E1cF2babe4';
   let theMicroCount = await queryMinted(ca_micro);
   let totalShares = theCount + 2*(theMicroCount); //total shares
+  console.log(totalShares);
 
 
   var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
@@ -741,6 +742,7 @@ async function setNumbers(address) {
 
 
   let sharePercent = 100*(Nb + 2*(Nm))/totalShares;
+  console.log(sharePercent);
 
   document.getElementById("yourshare").innerHTML = `<h2>Your holdings represent a <em>${sharePercent.toFixed(4)}%</em> share of the BBC treasury</h2>`;
 
