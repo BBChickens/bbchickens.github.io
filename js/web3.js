@@ -1181,7 +1181,7 @@ async function populateNFTs(address) {
 
     //var galleryCode = `<div class="mac-window-title"><span>BitDaemons</span></div>`;
     var galleryCode = `  <h3 class="collapsible">You own ${tokenList.length} BBChickens</h3>`;
-    gallerycode += `    <div class="form-block w-form">
+    galleryCode += `    <div class="form-block w-form">
             <h2> <button id="btn-burn-bbc" class="button-2">
               BURN
             </button> BBC ID:
