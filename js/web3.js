@@ -362,9 +362,9 @@ async function fetchAccountData() {
   console.log('xBOO balance: ' + xBooBalance.toString() + '$xBOO'); //get treasury balances
   console.log('BOO balance: ' + xBooBalance*xBooToBoo.toString() + '$xBOO');
   let totalFTM = contractBalance + multisigBalance + flipBalance;
-  document.getElementById("ftmTB").innerHTML = totalFTM.toString(); //populate FTM treasury balance
-  document.getElementById("xbooTB").innerHTML = xBooBalance.toString(); //populate FTM treasury balance
-  console.log('populated treasury balances');
+  //document.getElementById("ftmTB").innerHTML = totalFTM.toString(); //populate FTM treasury balance
+  //document.getElementById("xbooTB").innerHTML = xBooBalance.toString(); //populate FTM treasury balance
+  //console.log('populated treasury balances');
   //displayTokenName();
   //collapsible divs
   var coll = document.getElementsByClassName("collapsible");
