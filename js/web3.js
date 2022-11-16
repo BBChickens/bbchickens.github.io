@@ -343,7 +343,7 @@ async function fetchAccountData() {
   await populateMICROs(selectedAccount);
   await setNumbers(selectedAccount) //set minted/supply
 
-  let contractBalance = await web3.eth.getBalance("0xf9e393CbD7e8F34FB87127195f1F74E699D3d595");
+  /*let contractBalance = await web3.eth.getBalance("0xf9e393CbD7e8F34FB87127195f1F74E699D3d595");
   contractBalance = contractBalance / 1e18;
   console.log('BBC contract balance: ' + contractBalance.toString() + '$FTM');
   let multisigBalance = await web3.eth.getBalance("0x5FC85515d6613164457724035413c5f8b2d899E5");
@@ -362,9 +362,10 @@ async function fetchAccountData() {
   console.log('xBOO balance: ' + xBooBalance.toString() + '$xBOO'); //get treasury balances
   console.log('BOO balance: ' + xBooBalance*xBooToBoo.toString() + '$xBOO');
   let totalFTM = contractBalance + multisigBalance + flipBalance;
+
   //document.getElementById("ftmTB").innerHTML = totalFTM.toString(); //populate FTM treasury balance
   //document.getElementById("xbooTB").innerHTML = xBooBalance.toString(); //populate FTM treasury balance
-  //console.log('populated treasury balances');
+  //console.log('populated treasury balances');*/
   //displayTokenName();
   //collapsible divs
   var coll = document.getElementsByClassName("collapsible");
@@ -856,7 +857,7 @@ async function burnBBC() {
 
   const result = await transferFrom.send({
     from: selectedAccount,
-    gas: Math.round(gas * 1.2)
+    gas: Math.round(gas * 1.5)
 });
 }
 
@@ -885,7 +886,7 @@ async function burnMR() {
 
   const result = await transferFrom.send({
     from: selectedAccount,
-    gas: Math.round(gas * 1.2)
+    gas: Math.round(gas * 1.5)
 });
 }
 // web3 send() of both mint functions based off time, yes time
@@ -1365,7 +1366,6 @@ window.addEventListener('load', async () => {
   //document.querySelector("#BSC").addEventListener("click", hitBNB);
   //document.querySelector("#OP").addEventListener("click", hitOP);
   document.querySelector("#btn-mint").addEventListener("click", mintBBC);
-  //document.querySelector("#btn-burn-mr").addEventListener("click", burnMR);
   //document.querySelector("#btn-buyNFT").addEventListener("click", spawnTinyDaemon);
   //document.querySelector("#btn-traverseNFT").addEventListener("click", traverseTinyDaemon);
   //document.querySelector("#btn-Donate").addEventListener("click", ramenIsOnTheMenu);
