@@ -968,17 +968,13 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #fff;
-  border-radius: 3px;
 }
 
 .number-minted {
   margin-bottom: 0px;
   padding-top: 5px;
   padding-bottom: 5px;
-  font-family: Ocraext, sans-serif;
+  font-family: "bangers", sans-serif;
   color: #fff;
 }
 
@@ -986,7 +982,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   margin-bottom: 0px;
   padding-top: 5px;
   padding-bottom: 5px;
-  font-family: Ocraext, sans-serif;
+  font-family: "bangers", sans-serif;
   color: #fff;
 }
 
@@ -994,7 +990,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   margin-bottom: 0px;
   padding-top: 5px;
   padding-bottom: 5px;
-  font-family: Ocraext, sans-serif;
+  font-family: "bangers", sans-serif;
   color: #fff;
 }
 
