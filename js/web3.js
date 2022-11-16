@@ -1216,7 +1216,7 @@ async function populateNFTs(address) {
 
     galleryCode += `<div class='content' id="bdboxes">`;
     galleryCode += `    <div class="form-block w-form">
-            <h2> <button id="btn-burn-bbc" class="button-3">
+            <h2> <button id="btn-burn-bbc" class="button-3" onclick="return confirm('You sure? No backsies 🐔🔥🍗')">
               BURN
             </button> BBC ID:
               <input type="number"
