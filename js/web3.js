@@ -872,7 +872,7 @@ async function burnMR() {
   let dead = '0x000000000000000000000000000000000000dead';
 
   // define tokenContract because why twice?
-  let tokenContract = await new web3.eth.Contract(ABI, contractAddress);
+  let tokenContract = await new web3.eth.Contract(MICROABI, contractAddress);
   let ID = $('#MR-burn-id').val();
   //let ftm = number * 45000000000000000000;
   //let value = await tokenContract.methods.mint([ftm.toString(), number.toString()]).send({ from: selectedAccount });
