@@ -686,69 +686,69 @@ async function setNumbers(address) {
   document.getElementById("count").innerHTML = theCount;
   document.getElementById("total").innerHTML = theTotal;
 
-let ca_micro = '0x90B93c7A6DbAeb685878f6fe712Fb0E1cF2babe4';
-let theMicroCount = await queryMinted(ca_micro);
-let totalShares = theCount + 2*(theMicroCount); //total shares
+  let ca_micro = '0x90B93c7A6DbAeb685878f6fe712Fb0E1cF2babe4';
+  let theMicroCount = await queryMinted(ca_micro);
+  let totalShares = theCount + 2*(theMicroCount); //total shares
 
 
-var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
-+ `&contractaddress=${contractAddress}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
-// console.log(ftmscan_query)
-var result = await axios.get(ftmscan_query)
-.then(response => {
-  // console.log('Axios got a response...');console.log(response);
-  return response.data.result
-})
-.catch(error => {
-  console.log(error)
-})
+  var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
+  + `&contractaddress=${contractAddress}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
+  // console.log(ftmscan_query)
+  var result = await axios.get(ftmscan_query)
+  .then(response => {
+    // console.log('Axios got a response...');console.log(response);
+    return response.data.result
+  })
+  .catch(error => {
+    console.log(error)
+  })
 
-var tokenList = []
-for (var t of result) {
-  // Only filter where t.to is this address (t.from sends it away)
-  if (t.to.toLowerCase() == address.toLowerCase()) {
-    tokenList.push(t.tokenID)} //add token ID if incoming
-  if (t.from.toLowerCase() == address.toLowerCase()) {
-    var index = tokenList.indexOf(t.tokenID);
-    if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
+  var tokenList = []
+  for (var t of result) {
+    // Only filter where t.to is this address (t.from sends it away)
+    if (t.to.toLowerCase() == address.toLowerCase()) {
+      tokenList.push(t.tokenID)} //add token ID if incoming
+    if (t.from.toLowerCase() == address.toLowerCase()) {
+      var index = tokenList.indexOf(t.tokenID);
+      if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
 
-Nb = tokenList.length;
-console.log(Nb);
+  Nb = tokenList.length;
+  console.log(Nb);
 
-var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
-+ `&contractaddress=${ca_micro}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
-// console.log(ftmscan_query)
-var result = await axios.get(ftmscan_query)
-.then(response => {
-  // console.log('Axios got a response...');console.log(response);
-  return response.data.result
-})
-.catch(error => {
-  console.log(error)
-})
+  var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
+  + `&contractaddress=${ca_micro}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
+  // console.log(ftmscan_query)
+  var result = await axios.get(ftmscan_query)
+  .then(response => {
+    // console.log('Axios got a response...');console.log(response);
+    return response.data.result
+  })
+  .catch(error => {
+    console.log(error)
+  })
 
-var tokenList = []
-for (var t of result) {
-  // Only filter where t.to is this address (t.from sends it away)
-  if (t.to.toLowerCase() == address.toLowerCase()) {
-    tokenList.push(t.tokenID)} //add token ID if incoming
-  if (t.from.toLowerCase() == address.toLowerCase()) {
-    var index = tokenList.indexOf(t.tokenID);
-    if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
+  var tokenList = []
+  for (var t of result) {
+    // Only filter where t.to is this address (t.from sends it away)
+    if (t.to.toLowerCase() == address.toLowerCase()) {
+      tokenList.push(t.tokenID)} //add token ID if incoming
+    if (t.from.toLowerCase() == address.toLowerCase()) {
+      var index = tokenList.indexOf(t.tokenID);
+      if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
 
-Nm = tokenList.length;
-console.log(Nm);
-
-
-sharePercent = 100*(Nb + 2*(Nm))/totalShares;
-
-document.getElementById("yourshare").innerHTML = `<h1>Your holdings represent a ${sharePercent}% share of the BBC treasury</h1>`;
+  Nm = tokenList.length;
+  console.log(Nm);
 
 
+  sharePercent = 100*(Nb + 2*(Nm))/totalShares;
+
+  document.getElementById("yourshare").innerHTML = `<h1>Your holdings represent a ${sharePercent}% share of the BBC treasury</h1>`;
 
 
 
-}
+
+
+  }
 
 // async to pull EP's
 async function getEP() {
