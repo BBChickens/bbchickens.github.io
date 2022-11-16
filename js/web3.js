@@ -340,6 +340,7 @@ async function fetchAccountData() {
   document.getElementById("addWallet").innerHTML = display;
   //populate NFTs
   await populateNFTs(selectedAccount);
+  await populateMICROs(selectedAccount);
   await setNumbers() //set minted/supply
 
   let contractBalance = await web3.eth.getBalance("0xf9e393CbD7e8F34FB87127195f1F74E699D3d595");
@@ -1112,8 +1113,8 @@ async function populateNFTs(address) {
 
 async function populateMICROs(address) {
   //if the div already exists, remove it (for wallet switching)
-  if (document.contains(document.getElementById("galleryBD"))) {
-            document.getElementById("galleryBD").remove();}
+  if (document.contains(document.getElementById("galleryMR"))) {
+            document.getElementById("galleryMR").remove();}
 
   const token_address = '0x90B93c7A6DbAeb685878f6fe712Fb0E1cF2babe4'
   const FTMSCAN_API_KEY = 'J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE'
@@ -1151,7 +1152,7 @@ async function populateMICROs(address) {
   if (tokenList.length > 0) {
     var bdgallery = document.createElement('div')
     bdgallery.classList.add("mac-window", "centered")
-    bdgallery.id = "galleryBD";
+    bdgallery.id = "galleryMR";
     document.getElementById('content-wrapper2').appendChild(bdgallery)
 
     //var galleryCode = `<div class="mac-window-title"><span>BitDaemons</span></div>`;
