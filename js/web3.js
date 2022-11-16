@@ -856,7 +856,7 @@ async function burnBBC() {
 
   const result = await transferFrom.send({
     from: selectedAccount,
-    gas: Math.round(gas * 1.1)
+    gas: Math.round(gas * 1.2)
 });
 }
 // web3 send() of both mint functions based off time, yes time
