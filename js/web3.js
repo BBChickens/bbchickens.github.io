@@ -1192,7 +1192,7 @@ async function populateNFTs(address) {
                      value="${tokenList[0]}">
             </h2>`;
 
-    document.querySelector("#btn-burn-bbc").addEventListener("click", burnBBC);
+
 
     galleryCode += `<div class='content' id="bdboxes">`;
     //galleryCode += `<p class="example-left">👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹</p>`;
@@ -1218,6 +1218,7 @@ async function populateNFTs(address) {
      //galleryCode += `</div>`;
      //console.log(galleryCode);
      bdgallery.innerHTML = galleryCode
+     document.querySelector("#btn-burn-bbc").addEventListener("click", burnBBC);
   }
 }
 
