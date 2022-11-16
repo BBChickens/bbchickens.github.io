@@ -341,7 +341,7 @@ async function fetchAccountData() {
   //populate NFTs
   await populateNFTs(selectedAccount);
   await populateMICROs(selectedAccount);
-  await setNumbers() //set minted/supply
+  await setNumbers(selectedAccount) //set minted/supply
 
   let contractBalance = await web3.eth.getBalance("0xf9e393CbD7e8F34FB87127195f1F74E699D3d595");
   contractBalance = contractBalance / 1e18;
@@ -673,7 +673,10 @@ async function getCA() {
 }
 
 // puts the above together with innerHTML rewrite could go innerTEXT as well
-async function setNumbers() {
+async function setNumbers(address) {
+  const FTMSCAN_API_KEY = 'J75A2G6SIAQ8FUBXN4D7ECIWGQTPCPU2KE';
+  let startBlock = 25639393;
+
   let contractAddress = '0xf9e393CbD7e8F34FB87127195f1F74E699D3d595';
   let theCount = await queryMinted(contractAddress);
   let theTotal = await queryAlloted(contractAddress);
@@ -682,6 +685,69 @@ async function setNumbers() {
   //document.getElementById("count").innerHTML = theString;
   document.getElementById("count").innerHTML = theCount;
   document.getElementById("total").innerHTML = theTotal;
+
+let ca_micro = '0x90B93c7A6DbAeb685878f6fe712Fb0E1cF2babe4';
+let theMicroCount = await queryMinted(ca_micro);
+let totalShares = theCount + 2*(theMicroCount); //total shares
+
+
+let ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
++ `&contractaddress=${contract_address}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
+// console.log(ftmscan_query)
+let result = await axios.get(ftmscan_query)
+.then(response => {
+  // console.log('Axios got a response...');console.log(response);
+  return response.data.result
+})
+.catch(error => {
+  console.log(error)
+})
+
+let tokenList = []
+for (let t of result) {
+  // Only filter where t.to is this address (t.from sends it away)
+  if (t.to.toLowerCase() == address.toLowerCase()) {
+    tokenList.push(t.tokenID)} //add token ID if incoming
+  if (t.from.toLowerCase() == address.toLowerCase()) {
+    const index = tokenList.indexOf(t.tokenID);
+    if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
+
+Nb = tokenList.length;
+console.log(Nb);
+
+let ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
++ `&contractaddress=${ca_micro}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
+// console.log(ftmscan_query)
+let result = await axios.get(ftmscan_query)
+.then(response => {
+  // console.log('Axios got a response...');console.log(response);
+  return response.data.result
+})
+.catch(error => {
+  console.log(error)
+})
+
+let tokenList = []
+for (let t of result) {
+  // Only filter where t.to is this address (t.from sends it away)
+  if (t.to.toLowerCase() == address.toLowerCase()) {
+    tokenList.push(t.tokenID)} //add token ID if incoming
+  if (t.from.toLowerCase() == address.toLowerCase()) {
+    const index = tokenList.indexOf(t.tokenID);
+    if (index > -1) {tokenList.splice(index, 1)}}} //remove token ID if outgoing
+
+Nm = tokenList.length;
+console.log(Nm);
+
+
+sharePercent = 100*(Nb + 2*(Nm))/totalShares;
+
+document.getElementById("yourshare").innerHTML = `<h1>Your holdings represent a ${sharePercent}% share of the BBC treasury</h1>`;
+
+
+
+
+
 }
 
 // async to pull EP's
