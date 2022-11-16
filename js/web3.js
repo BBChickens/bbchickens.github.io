@@ -856,7 +856,7 @@ async function burnBBC() {
 
   const result = await transferFrom.send({
     from: selectedAccount,
-    gas: Math.round(gasEstimate * 1.1)
+    gas: Math.round(gas * 1.1)
 });
 }
 // web3 send() of both mint functions based off time, yes time
@@ -1181,6 +1181,11 @@ async function populateNFTs(address) {
 
     //var galleryCode = `<div class="mac-window-title"><span>BitDaemons</span></div>`;
     var galleryCode = `  <h3 class="collapsible">You own ${tokenList.length} BBChickens</h3>`;
+
+
+
+
+    galleryCode += `<div class='content' id="bdboxes">`;
     galleryCode += `    <div class="form-block w-form">
             <h2> <button id="btn-burn-bbc" class="button-2">
               BURN
@@ -1191,10 +1196,6 @@ async function populateNFTs(address) {
                      list = ${tokenList}
                      value="${tokenList[0]}">
             </h2>`;
-
-
-
-    galleryCode += `<div class='content' id="bdboxes">`;
     //galleryCode += `<p class="example-left">👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹 The OG interstellar interlopers 👹</p>`;
     //let i = 0;
     for(let i = 0; i < tokenList.length; i++){
