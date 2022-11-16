@@ -1190,7 +1190,7 @@ async function populateNFTs(address) {
                      name="Nmint"
                      list = ${tokenList}
                      value="${tokenList[0]}">
-            </h2>`
+            </h2>`;
 
     document.querySelector("#btn-burn-bbc").addEventListener("click", burnBBC);
 
