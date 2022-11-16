@@ -692,7 +692,7 @@ let totalShares = theCount + 2*(theMicroCount); //total shares
 
 
 var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
-+ `&contractaddress=${contract_address}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
++ `&contractaddress=${contractAddress}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
 // console.log(ftmscan_query)
 var result = await axios.get(ftmscan_query)
 .then(response => {
