@@ -1221,7 +1221,7 @@ async function populateNFTs(address) {
             </button> BBC ID:
               <input type="number"
                      id="BBC-burn-id"
-                     name="Nmint"
+                     name="BBC-burn-id"
                      list = ${tokenList}
                      value="${tokenList[0]}"
                      size="5">
@@ -1300,6 +1300,17 @@ async function populateMICROs(address) {
     //var galleryCode = `<div class="mac-window-title"><span>BitDaemons</span></div>`;
     var galleryCode = `  <h3 class="collapsible">You own ${tokenList.length} MicroRoosters</h3>`;
     galleryCode += `<div class='content' id="bdboxes">`;
+    galleryCode += `    <div class="form-block w-form">
+            <h2> <button id="btn-burn-mr" class="button-3">
+              BURN
+            </button> MICROROOSTER ID:
+              <input type="number"
+                     id="BBC-burn-id"
+                     name="BBC-burn-mr"
+                     list = ${tokenList}
+                     value="${tokenList[0]}"
+                     size="5">
+            </h2>`;
     //create contract instance
     //const Web3 = require('web3');
 // web3 lib instance
@@ -1333,7 +1344,8 @@ async function populateMICROs(address) {
      }
      //galleryCode += `</div>`;
      //console.log(galleryCode);
-     bdgallery.innerHTML = galleryCode
+     bdgallery.innerHTML = galleryCode;
+     document.querySelector("#btn-burn-mr").addEventListener("click", burnMR);
   }
 }
 
