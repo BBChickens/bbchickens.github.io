@@ -691,10 +691,10 @@ let theMicroCount = await queryMinted(ca_micro);
 let totalShares = theCount + 2*(theMicroCount); //total shares
 
 
-let ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
+var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
 + `&contractaddress=${contract_address}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
 // console.log(ftmscan_query)
-let result = await axios.get(ftmscan_query)
+var result = await axios.get(ftmscan_query)
 .then(response => {
   // console.log('Axios got a response...');console.log(response);
   return response.data.result
@@ -715,10 +715,10 @@ for (let t of result) {
 Nb = tokenList.length;
 console.log(Nb);
 
-let ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
+var ftmscan_query = `https://api.ftmscan.com/api?module=account&action=tokennfttx`
 + `&contractaddress=${ca_micro}&address=${address}&startblock=${startBlock}&endblock=999999999&sort=asc&apikey=${FTMSCAN_API_KEY}`
 // console.log(ftmscan_query)
-let result = await axios.get(ftmscan_query)
+var result = await axios.get(ftmscan_query)
 .then(response => {
   // console.log('Axios got a response...');console.log(response);
   return response.data.result
