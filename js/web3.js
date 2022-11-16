@@ -1216,7 +1216,7 @@ async function populateNFTs(address) {
 
     galleryCode += `<div class='content' id="bdboxes">`;
     galleryCode += `    <div class="form-block w-form">
-            <h2> <button id="btn-burn-bbc" class="button-3" onclick="return confirm('You sure?! No backsies 🐔🔥🍗')">
+            <h2> <button id="btn-burn-bbc" class="button-3" onclick="return confirm('You sure you want to burn your BBChicken?! No backsies 🐔🔥🍗')">
               BURN
             </button> BBC ID:
               <input type="number"
@@ -1301,7 +1301,7 @@ async function populateMICROs(address) {
     var galleryCode = `  <h3 class="collapsible">You own ${tokenList.length} MicroRoosters</h3>`;
     galleryCode += `<div class='content' id="bdboxes">`;
     galleryCode += `    <div class="form-block w-form">
-            <h2> <button id="btn-burn-mr" class="button-3">
+            <h2> <button id="btn-burn-mr" class="button-3" onclick="return confirm('You sure you want to burn your MicroRooster?! No backsies 🐔🔥🍗')">
               BURN
             </button> MICROROOSTER ID:
               <input type="number"
