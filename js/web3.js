@@ -1305,7 +1305,7 @@ async function populateMICROs(address) {
               BURN
             </button> MICROROOSTER ID:
               <input type="number"
-                     id="BBC-burn-id"
+                     id="MR-burn-id"
                      name="BBC-burn-mr"
                      list = ${tokenList}
                      value="${tokenList[0]}"
