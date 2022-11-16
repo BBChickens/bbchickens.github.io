@@ -742,7 +742,7 @@ async function setNumbers(address) {
 
   let sharePercent = 100*(Nb + 2*(Nm))/totalShares;
 
-  document.getElementById("yourshare").innerHTML = `<h2>Your holdings represent a ${sharePercent.toFixed(4)}% share of the BBC treasury</h2>`;
+  document.getElementById("yourshare").innerHTML = `<h2>Your holdings represent a <em>${sharePercent.toFixed(4)}%</em> share of the BBC treasury</h2>`;
 
 
 
