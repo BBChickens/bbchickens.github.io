@@ -62,7 +62,7 @@
 	text-align: center;
 	display: inline-block;
 	width: 100%;
-	font-size: 14px;
+	font-size: 20px; *this is the tab titles small
 	font-weight: 900;
 	text-transform: uppercase;
 	color: #121212;
@@ -145,7 +145,7 @@ h2.resp-accordion .tabs-text {
     position: relative;
     top: -3px;
     left: 0px;
-	font-size: 25px;
+	font-size: 25px; *this is the tab titles big
 }
 
 .arrow-tabs {
